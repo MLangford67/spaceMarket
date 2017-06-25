@@ -5,12 +5,17 @@ import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
-
+import * as mongoose from 'mongoose';
 import routes from './routes/index';
 import users from './routes/users';
+//import Database from './db';
 
+// Database.connect();
+//
 let app = express();
 
+mongoose.connect('mongodb://Mlangford67:Carnifex6@ds159208.mlab.com:59208/piranhaspiderdb');
+console.log('connection!');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

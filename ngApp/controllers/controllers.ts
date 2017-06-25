@@ -33,6 +33,23 @@ namespace spaceapp.Controllers {
 
       }
     }
+    export class EditController{
+      public data;
+      public id;
+
+      public editData(){
+        this.basicService.saveData(this.data).then(()=>{
+          this.$state.go('home');
+        })
+      }
+      constructor(
+        public $state,
+        public basicService,
+        public $stateParams
+      ){
+        this.id = $stateParams['id'];
+      }
+    }
 
 
     export class AboutController {

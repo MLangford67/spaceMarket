@@ -31,6 +31,22 @@ var spaceapp;
             return BasicController;
         }());
         Controllers.BasicController = BasicController;
+        var EditController = (function () {
+            function EditController($state, basicService, $stateParams) {
+                this.$state = $state;
+                this.basicService = basicService;
+                this.$stateParams = $stateParams;
+                this.id = $stateParams['id'];
+            }
+            EditController.prototype.editData = function () {
+                var _this = this;
+                this.basicService.saveData(this.data).then(function () {
+                    _this.$state.go('home');
+                });
+            };
+            return EditController;
+        }());
+        Controllers.EditController = EditController;
         var AboutController = (function () {
             function AboutController() {
             }
